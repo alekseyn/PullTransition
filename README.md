@@ -22,12 +22,12 @@ class FirstViewController: UIViewController, PullTransitionPanning {
 }
 ```
 
-**Destination view controllers** can either implement the `PullTransitionPanning` protocol, or simply subclass `PullToDismissViewController` or `PullToPopViewController`.
+**Destination view controllers** can either implement the `PullTransitionPanning` protocol, or simply subclass `PullToDismissTableViewController` or `PullToPopTableViewController`.
 
 ```swift
 import PullTransition
 
-class MyTableViewController: PullToDismissViewController {
+class MyTableViewController: PullToDismissTableViewController {
 }
 ```
 
@@ -70,9 +70,9 @@ class FirstViewController: UIViewController, PullTransitionPanning {
 	}
 ```
 
-(5) Table view controllers that have been presented, with or without being embedded in a navigation controller, simply need to subclass `PullToDismissViewController`. No other code required.
+(5) Table view controllers that have been presented, with or without being embedded in a navigation controller, simply need to subclass `PullToDismissTableViewController`. No other code required.
 
-(6) Table view controllers that have been pushed onto a navigation controller, simply need to subclass `PullToPopViewController`. No other code required.
+(6) Table view controllers that have been pushed onto a navigation controller, simply need to subclass `PullToPopTableViewController`. No other code required.
 
 ## Advanced
 `PullTransitionDelegate` can be replaced with your own custom class as long as it implements the `PullTransition` protocol.

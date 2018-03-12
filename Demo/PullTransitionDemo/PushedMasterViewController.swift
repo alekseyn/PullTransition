@@ -5,7 +5,7 @@
 //  Created by Aleksey Novicov on 12/3/17.
 //
 // Two things are required for interactive pull-to-pop transition of table view controllers:
-//	1. 	The pushed view controller must subclass PullToPopViewController.
+//	1. 	The pushed view controller must subclass PullToPopTableViewController.
 //  2. 	The navigation controller's delegate must be set to a PullTransitionDelegate
 //	   	before view controller is pushed.
 
@@ -13,7 +13,7 @@ import UIKit
 import CoreData
 import PullTransition
 
-class PushedMasterViewController: PullToPopViewController, NSFetchedResultsControllerDelegate {
+class PushedMasterViewController: PullToPopTableViewController, NSFetchedResultsControllerDelegate {
 	var detailViewController: DetailViewController? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
 	

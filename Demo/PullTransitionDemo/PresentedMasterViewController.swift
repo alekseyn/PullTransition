@@ -5,7 +5,7 @@
 //  Created by Aleksey Novicov on 12/3/17.
 //
 // Two things are required for interactive animation dismissal of table view controllers:
-//	1. 	The presented view controller must subclass PullToDismissViewController.
+//	1. 	The presented view controller must subclass PullToDismissTableViewController.
 //  2. 	The presented view controller's transitioningDelegate must be set to a PullTransitionDelegate
 //	   	before it is presented.
 
@@ -13,7 +13,7 @@ import UIKit
 import CoreData
 import PullTransition
 
-class PresentedMasterViewController: PullToDismissViewController, NSFetchedResultsControllerDelegate {
+class PresentedMasterViewController: PullToDismissTableViewController, NSFetchedResultsControllerDelegate {
 	var detailViewController: DetailViewController? = nil
 	var managedObjectContext: NSManagedObjectContext? = nil
 	
