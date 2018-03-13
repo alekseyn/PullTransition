@@ -47,11 +47,18 @@ public class PullInteractiveTransition: NSObject {
 				case .began:
 					updateCount = 0
 					
-					// If the toViewController is embedded in a UINavigationController, do
-					// not allow it to be interruptible. UINavigationBar items are not handled
-					// correctly if the transition context is paused and then finished (as of iOS 11.2.2)
-					let viewController = transitionContext?.viewController(forKey: .to)
-					let allowInterruption = (viewController?.navigationController == nil) || animator.operation.isModal
+					// In iOS 10 pushing and presenting is always interruptible. Popping and dismissing
+					// is non-interactive in iOS 10 and is thus non-interruptible by default.
+					var allowInterruption = true
+					
+					if #available(iOS 11, *) {
+						// If the toViewController is embedded in a UINavigationController, do
+						// not allow it to be interruptible. UINavigationBar items are not handled
+						// correctly if the transition context is paused and then finished (as of iOS 11.2.2)
+						let viewController = transitionContext?.viewController(forKey: .to)
+						
+						allowInterruption = (viewController?.navigationController == nil) || animator.operation.isModal
+					}
 
 					if allowInterruption {
 						if interruptibleAnimator.isRunning {
