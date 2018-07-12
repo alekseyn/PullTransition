@@ -16,7 +16,6 @@
 		5B6F81AE204F113300FE614E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F81AA204F113300FE614E /* FirstViewController.swift */; };
 		5B6F81AF204F113300FE614E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F81AB204F113300FE614E /* SecondViewController.swift */; };
 		5B6F81B0204F113300FE614E /* PushedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F81AC204F113300FE614E /* PushedMasterViewController.swift */; };
-		5B6F81B1204F113300FE614E /* PresentedMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F81AD204F113300FE614E /* PresentedMasterViewController.swift */; };
 		5B6F81B8204F119E00FE614E /* PullTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6F81B7204F118700FE614E /* PullTransition.framework */; };
 		5B6F81B9204F119E00FE614E /* PullTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6F81B7204F118700FE614E /* PullTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -64,7 +63,6 @@
 		5B6F81AA204F113300FE614E /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5B6F81AB204F113300FE614E /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5B6F81AC204F113300FE614E /* PushedMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushedMasterViewController.swift; sourceTree = "<group>"; };
-		5B6F81AD204F113300FE614E /* PresentedMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedMasterViewController.swift; sourceTree = "<group>"; };
 		5B6F81B2204F118700FE614E /* PullTransition.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PullTransition.xcodeproj; path = ../PullTransition.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				5B6F81AA204F113300FE614E /* FirstViewController.swift */,
-				5B6F81AD204F113300FE614E /* PresentedMasterViewController.swift */,
 				5B6F81AC204F113300FE614E /* PushedMasterViewController.swift */,
 				5B6F81AB204F113300FE614E /* SecondViewController.swift */,
 				5B6F8193204F0FBA00FE614E /* AppDelegate.swift */,
@@ -217,7 +214,6 @@
 				5B6F8194204F0FBA00FE614E /* AppDelegate.swift in Sources */,
 				5B6F81B0204F113300FE614E /* PushedMasterViewController.swift in Sources */,
 				5B6F819B204F0FBA00FE614E /* DetailViewController.swift in Sources */,
-				5B6F81B1204F113300FE614E /* PresentedMasterViewController.swift in Sources */,
 				5B6F81AF204F113300FE614E /* SecondViewController.swift in Sources */,
 				5B6F81AE204F113300FE614E /* FirstViewController.swift in Sources */,
 			);

@@ -16,7 +16,10 @@ class FirstViewController: UIViewController, PullTransitionPanning {
 	
 	@IBOutlet weak var scrollSwitch: UISwitch!
 	@IBOutlet weak var overlaySwitch: UISwitch!
-	@IBOutlet weak var pushSwitch: UISwitch!
+	
+	let appDelegate = {
+		return UIApplication.shared.delegate as! AppDelegate
+	} ()
 	
 	lazy var pullTransitionDelegate: PullTransitionDelegate = {
 		var mode: PullTransitionMode = .scroll
@@ -43,22 +46,16 @@ class FirstViewController: UIViewController, PullTransitionPanning {
 	// MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		segue.destination.transitioningDelegate = pullTransitionDelegate
-		
-		if segue.identifier == "present-demo" {
-			if let vc = segue.destination as? SecondViewController {
-				vc.mode = pullTransitionDelegate.mode
-				vc.usePush 		= pushSwitch.isOn
+		if segue.identifier == "push-master" {
+			// Set the navigationController delegate to invoke interactive custom animation transitions
+			self.navigationController?.delegate = pullTransitionDelegate
+			
+			// Initialize managedObjectContext
+			if let vc = segue.destination as? PushedMasterViewController {
+				vc.managedObjectContext = appDelegate.persistentContainer.viewContext
 			}
 		}
-		if segue.identifier == "push-demo" {
-			if let nav = segue.destination as? UINavigationController,
-			   let vc = nav.topViewController as? SecondViewController {
-				vc.mode = pullTransitionDelegate.mode
-				vc.usePush 		= pushSwitch.isOn
-			}
-		}
-    }
+	}
 
 	@IBAction func updateMode(_ sender: Any) {
 		var mode: PullTransitionMode = .scroll
@@ -93,12 +90,7 @@ class FirstViewController: UIViewController, PullTransitionPanning {
 			
 		case .began:
 			if !self.pullTransitionDelegate.animatorIsActive {
-				if pushSwitch.isOn {
-					self.performSegue(withIdentifier: "push-demo", sender: self)
-				}
-				else {
-					self.performSegue(withIdentifier: "present-demo", sender: self)
-				}
+				self.performSegue(withIdentifier: "push-master", sender: self)
 			}
 			
 		default:

@@ -15,7 +15,6 @@ import PullTransition
 
 class SecondViewController: UIViewController, PullTransitionPanning {
 	
-	var usePush = false								// true if we use push/pop instead of present/dismiss
 	var busyDismissing = false
 	var mode = PullTransitionMode.scroll
 
@@ -35,16 +34,6 @@ class SecondViewController: UIViewController, PullTransitionPanning {
 	// MARK: - Navigation
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "present-master",
-			let nav = segue.destination as? UINavigationController,
-			let masterViewController = nav.topViewController as? PresentedMasterViewController {
-			
-			// Set the transitioningDelegate to invoke interactive custom animation transitions
-			nav.transitioningDelegate = pullTransitionDelegate
-			
-			// Initialize managedObjectContext
-			masterViewController.managedObjectContext = appDelegate.persistentContainer.viewContext
-		}
 		if segue.identifier == "push-master" {
 			// Set the navigationController delegate to invoke interactive custom animation transitions
 			self.navigationController?.delegate = pullTransitionDelegate
@@ -71,12 +60,7 @@ class SecondViewController: UIViewController, PullTransitionPanning {
 					self.dismiss(animated: true, completion: {self.busyDismissing = false} )
 				}
 				else {
-					if usePush {
-						self.performSegue(withIdentifier: "push-master", sender: self)
-					}
-					else {
-						self.performSegue(withIdentifier: "present-master", sender: self)
-					}
+					self.performSegue(withIdentifier: "push-master", sender: self)
 				}
 			}
 			
