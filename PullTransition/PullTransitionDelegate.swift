@@ -97,54 +97,6 @@ public class PullTransitionDelegate: NSObject, PullTransition {
 	}
 }
 
-// MARK: - UIViewControllerTransitioningDelegate
-
-extension PullTransitionDelegate: UIViewControllerTransitioningDelegate {
-	
-	public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		var presentingVC = presenting
-		
-		if let navigationController = presenting as? UINavigationController {
-			presentingVC = navigationController.topViewController!
-		}
-
-		// Save pan gesture recognizer for use by interaction controller
-		usePanGestureRecognizer(fromViewController: presentingVC)
-		
-		animatedTransition = PullTransitionAnimator(mode: self.mode, operation: .present)
-		return animatedTransition
-	}
-	
-	public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		return pullInteractionController(using: animator)
-	}
-	
-	public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		var presentedVC = dismissed
-
-		if let navigationController = dismissed as? UINavigationController {
-			presentedVC = navigationController.topViewController!
-		}
-
-		// Save pan gesture recognizer for use by interaction controller
-		usePanGestureRecognizer(fromViewController: presentedVC)
-		
-		// Reuse animatedTransition, but update animation direction
-		if let transition = animatedTransition {
-			transition.operation = .dismiss
-		}
-		else {
-			self.animatedTransition = PullTransitionAnimator(mode: self.mode, operation: .dismiss)
-		}
-
-		return animatedTransition
-	}
-
-	public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-		return pullInteractionController(using:animator)
-	}
-}
-
 // MARK: - UINavigationControllerDelegate
 
 extension PullTransitionDelegate: UINavigationControllerDelegate {

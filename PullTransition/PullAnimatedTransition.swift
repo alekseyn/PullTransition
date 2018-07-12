@@ -9,17 +9,11 @@
 import UIKit
 
 @objc public enum PullTransitionOperation: UInt {
-	case present
-	case dismiss
 	case push
 	case pop
 	
 	var isForward: Bool {
-		return (self == .present) || (self == .push)
-	}
-	
-	var isModal: Bool {
-		return (self == .present) || (self == .dismiss)
+		return (self == .push)
 	}
 }
 

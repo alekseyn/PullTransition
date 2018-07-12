@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5B6F8175204F07F900FE614E /* PullTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6F8173204F07F900FE614E /* PullTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B6F8181204F08EB00FE614E /* PullAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F817B204F08EB00FE614E /* PullAnimatedTransition.swift */; };
-		5B6F8182204F08EB00FE614E /* PullToDismissViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F817C204F08EB00FE614E /* PullToDismissViewController.swift */; };
 		5B6F8183204F08EB00FE614E /* PullTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F817D204F08EB00FE614E /* PullTransitionDelegate.swift */; };
 		5B6F8184204F08EB00FE614E /* PullInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F817E204F08EB00FE614E /* PullInteractiveTransition.swift */; };
 		5B6F8185204F08EB00FE614E /* PullToPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F817F204F08EB00FE614E /* PullToPopViewController.swift */; };
@@ -21,7 +20,6 @@
 		5B6F8173204F07F900FE614E /* PullTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullTransition.h; sourceTree = "<group>"; };
 		5B6F8174204F07F900FE614E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6F817B204F08EB00FE614E /* PullAnimatedTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullAnimatedTransition.swift; sourceTree = "<group>"; };
-		5B6F817C204F08EB00FE614E /* PullToDismissViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToDismissViewController.swift; sourceTree = "<group>"; };
 		5B6F817D204F08EB00FE614E /* PullTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullTransitionDelegate.swift; sourceTree = "<group>"; };
 		5B6F817E204F08EB00FE614E /* PullInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullInteractiveTransition.swift; sourceTree = "<group>"; };
 		5B6F817F204F08EB00FE614E /* PullToPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToPopViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				5B6F817B204F08EB00FE614E /* PullAnimatedTransition.swift */,
 				5B6F817E204F08EB00FE614E /* PullInteractiveTransition.swift */,
 				5B6F817D204F08EB00FE614E /* PullTransitionDelegate.swift */,
-				5B6F817C204F08EB00FE614E /* PullToDismissViewController.swift */,
 				5B6F817F204F08EB00FE614E /* PullToPopViewController.swift */,
 				5B6F8180204F08EB00FE614E /* VectorMath.swift */,
 				5B6F8173204F07F900FE614E /* PullTransition.h */,
@@ -152,7 +149,6 @@
 			files = (
 				5B6F8181204F08EB00FE614E /* PullAnimatedTransition.swift in Sources */,
 				5B6F8184204F08EB00FE614E /* PullInteractiveTransition.swift in Sources */,
-				5B6F8182204F08EB00FE614E /* PullToDismissViewController.swift in Sources */,
 				5B6F8183204F08EB00FE614E /* PullTransitionDelegate.swift in Sources */,
 				5B6F8186204F08EB00FE614E /* VectorMath.swift in Sources */,
 				5B6F8185204F08EB00FE614E /* PullToPopViewController.swift in Sources */,

@@ -13,6 +13,21 @@ public extension UIViewController {
 		return self.navigationController?.delegate as? PullTransition
 	}
 	
+	// The amount of travel beyond the pullTriggerThreshold
+	@objc func pullTravelThreshold() -> CGFloat {
+		return 0.0
+	}
+
+	// Typically override only using PullToDismissViewVontroller or PullToPopViewController
+	@objc func pullTriggerThreshold() -> CGFloat {
+		let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+		
+		if let navController = self.navigationController {
+			return navController.navigationBar.frame.size.height + statusBarHeight
+		}
+		return 0.0
+	}
+	
 	@objc public func hasBeenPopped(tableView: UITableView, completion: (() -> Swift.Void)? = nil) -> Bool {
 		var hasBeenPopped = false
 		
