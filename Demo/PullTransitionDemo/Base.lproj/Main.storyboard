@@ -20,38 +20,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcJ-Ja-sjS">
                                 <rect key="frame" x="22.5" y="131" width="330" height="182"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-Xf-bST" userLabel="overlaySwitch">
-                                        <rect key="frame" x="168" y="80" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="onTintColor" red="0.40260219450000001" green="0.6672603627" blue="0.53703171719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <action selector="updateMode:" destination="Ecc-en-MTk" eventType="valueChanged" id="493-97-vyE"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="scroll" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp7-Ai-03l">
-                                        <rect key="frame" x="108" y="42" width="52" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                        <color key="textColor" red="0.40260219453205409" green="0.6672603627" blue="0.53703171716034004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="overlay" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FR-yz-uNk">
-                                        <rect key="frame" x="93" y="85" width="67" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                        <color key="textColor" red="0.40260219453205409" green="0.6672603627" blue="0.53703171716034004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-2f-w60" userLabel="scrollSwitch">
-                                        <rect key="frame" x="168" y="37" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="onTintColor" red="0.40260219450000001" green="0.6672603627" blue="0.53703171719999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <action selector="updateMode:" destination="Ecc-en-MTk" eventType="valueChanged" id="u9N-JM-EBD"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="182" id="Xob-h4-Gfa"/>
@@ -81,9 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qoh-Xh-b9C"/>
                     <connections>
-                        <outlet property="overlaySwitch" destination="lkh-Xf-bST" id="69n-At-dmK"/>
                         <outlet property="panGestureRecognizer" destination="oi0-hR-9C0" id="vYO-Aw-Ufu"/>
-                        <outlet property="scrollSwitch" destination="OqG-2f-w60" id="p4s-Xn-0Kv"/>
                         <segue destination="gfp-Sf-TSz" kind="show" identifier="push-master" id="ZnF-ro-80b"/>
                     </connections>
                 </viewController>

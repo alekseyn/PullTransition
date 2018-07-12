@@ -8,11 +8,6 @@
 import UIKit
 
 
-@objc public enum PullTransitionMode: UInt {
-	case overlay
-	case scroll
-}
-
 // A view controller that is the source of view controller transition must adopt the
 // PullTransitionPanning protocol in order for that transition to be
 // interactive and interruptible. In some cases the transition will still not be
@@ -47,21 +42,6 @@ public class PullTransitionDelegate: NSObject, PullTransition {
 	
 	private var interactiveTransition: PullInteractiveTransition?
 	private var panGestureRecognizer: UIPanGestureRecognizer?
-	private let defaultMode = PullTransitionMode.scroll
-	
-	// MARK: - Initialization
-	
-	public var mode: PullTransitionMode
-
-	@objc public init(mode: PullTransitionMode) {
-		self.mode = mode
-		super.init()
-	}
-	
-	public override init() {
-		self.mode = defaultMode
-		super.init()
-	}
 	
 	public func usePanGestureRecognizer(fromViewController viewController: UIViewController) {
 		// Clear any prior pan gesture recognizers
@@ -107,7 +87,7 @@ extension PullTransitionDelegate: UINavigationControllerDelegate {
 		usePanGestureRecognizer(fromViewController: fromVC)
 
 		if operation == .push {
-			animatedTransition = PullTransitionAnimator(mode: self.mode, operation: .push)
+			animatedTransition = PullTransitionAnimator(operation: .push)
 		}
 		else {
 			// Reuse animatedTransition, but update animation direction
@@ -116,7 +96,7 @@ extension PullTransitionDelegate: UINavigationControllerDelegate {
 			}
 			else {
 				// This might be necessary if the push was not animated, as may be the case when the navigation stack is initially set on launch.
-				animatedTransition = PullTransitionAnimator(mode: self.mode, operation: .pop)
+				animatedTransition = PullTransitionAnimator(operation: .pop)
 			}
 		}
 		return animatedTransition

@@ -58,11 +58,9 @@ public class PullTransitionAnimator: NSObject, PullAnimatedTransition {
 	
 	// MARK: - Initialization
 	
-	public var mode: PullTransitionMode
 	public var operation: PullTransitionOperation
 	
-	public init(mode: PullTransitionMode, operation: PullTransitionOperation) {
-		self.mode 		= mode
+	public init(operation: PullTransitionOperation) {
 		self.operation 	= operation
 		
 		super.init()
@@ -94,40 +92,26 @@ public class PullTransitionAnimator: NSObject, PullAnimatedTransition {
 		// toView rather than it's snapshot. But in all other cases use toSnapshot
 		let embedded = (fromVC.navigationController != nil)
 
-		if mode == .scroll {
-			if operation.isForward {
-				// The snapshot generated at time of reverse animation is incorrectly offset when using
-				// auto-layout. Not sure why. Instead, save the snapshot view during forward animation.
-				reverseScrollSnapshot = fromView.snapshotView(afterScreenUpdates: false)
-				reverseScrollSnapshot?.isUserInteractionEnabled = false
-			}
-			else {
-				// Use the previously saved snapshot
-				toSnapshot = reverseScrollSnapshot;
-			}
-			
-			toView.frame = startFrame
-			toSnapshot?.frame = startFrame
-
-			if toSnapshot != nil {
-				context.containerView.insertSubview(toSnapshot!, belowSubview: fromView)
-			}
+		if operation.isForward {
+			// The snapshot generated at time of reverse animation is incorrectly offset when using
+			// auto-layout. Not sure why. Instead, save the snapshot view during forward animation.
+			reverseScrollSnapshot = fromView.snapshotView(afterScreenUpdates: false)
+			reverseScrollSnapshot?.isUserInteractionEnabled = false
 		}
-		else { // .overlay
+		else {
+			// Use the previously saved snapshot
+			toSnapshot = reverseScrollSnapshot;
+		}
+		
+		toView.frame = startFrame
+		toSnapshot?.frame = startFrame
 
-			if (operation.isForward) {
-				toView.frame = startFrame
-				toSnapshot?.frame = startFrame
-
-				if toSnapshot != nil {
-					context.containerView.insertSubview(toSnapshot!, aboveSubview: toView)
-				}
-			}
+		if toSnapshot != nil {
+			context.containerView.insertSubview(toSnapshot!, belowSubview: fromView)
 		}
 		
 		// Hide the toView to prevent ocassional flashing of toView.
-		// But cannot be hidden if in .overlay mode.
-		toView.isHidden = (mode == .scroll)
+		toView.isHidden = true
 
 		let duration	= PullTransitionAnimator.animationDuration()
 		let timing 		= UISpringTimingParameters(dampingRatio: 1.0)
@@ -143,24 +127,11 @@ public class PullTransitionAnimator: NSObject, PullAnimatedTransition {
 			
 			endFrame.origin.y += (self.operation.isForward) ? -fromView.frame.height : fromView.frame.height
 
-			// Animate fromView into place
-			if self.mode == .scroll {
-				// Hide the toView (toSnapshot) until the animation is finished
-				toView.isHidden 	 = !embedded
-				toSnapshot?.isHidden = embedded
-				
-				fromView.frame = endFrame
-			}
-			else {
-				if self.operation.isForward {
-					// Hide the toView (toSnapshot) until the animation is finished
-					toView.isHidden 	 = !embedded
-					toSnapshot?.isHidden = embedded
-				}
-				else {
-					fromView.frame = endFrame
-				}
-			}
+			// Hide the toView (toSnapshot) until the animation is finished
+			toView.isHidden 	 = !embedded
+			toSnapshot?.isHidden = embedded
+			
+			fromView.frame = endFrame
 		}
 		
 		propertyAnimator.addCompletion { (position) in
