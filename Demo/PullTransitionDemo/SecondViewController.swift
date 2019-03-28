@@ -30,7 +30,7 @@ class SecondViewController: UIViewController, PullTransitionPanning {
 	// MARK: - PullTransitionPanning
 	
 	@IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer?
-	var latestGestureRecognizerState: UIGestureRecognizerState = .possible
+	var latestGestureRecognizerState: UIGestureRecognizer.State = .possible
 	
 	// MARK: - Navigation
 	

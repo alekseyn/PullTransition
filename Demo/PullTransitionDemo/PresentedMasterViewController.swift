@@ -86,7 +86,7 @@ class PresentedMasterViewController: PullToDismissTableViewController, NSFetched
 		return true
 	}
 
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 		    let context = fetchedResultsController.managedObjectContext
 		    context.delete(fetchedResultsController.object(at: indexPath))
@@ -164,7 +164,9 @@ class PresentedMasterViewController: PullToDismissTableViewController, NSFetched
 	        case .move:
 	            configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
 	            tableView.moveRow(at: indexPath!, to: newIndexPath!)
-	    }
+			@unknown default:
+				fatalError()
+		}
 	}
 
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

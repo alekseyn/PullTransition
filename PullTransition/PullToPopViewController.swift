@@ -13,13 +13,13 @@ public extension UIViewController {
 		return self.navigationController?.delegate as? PullTransition
 	}
 	
-	@objc public func hasBeenPopped(tableView: UITableView, completion: (() -> Swift.Void)? = nil) -> Bool {
+	@objc func hasBeenPopped(tableView: UITableView, completion: (() -> Swift.Void)? = nil) -> Bool {
 		var hasBeenPopped = false
 		
 		let contentOffset = -tableView.contentOffset.y - pullTriggerThreshold()
 		let velocity = tableView.panGestureRecognizer.velocity(in: tableView.superview)
 
-		if contentOffset > pullTravelThreshold() && velocity.y > 0 && !isMovingFromParentViewController {
+		if contentOffset > pullTravelThreshold() && velocity.y > 0 && !isMovingFromParent {
 			
 			// Don't interfere with the inertial deceleration. The tableview is not decelerating
 			// when the user is panning with their finger.
